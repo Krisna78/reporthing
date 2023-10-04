@@ -37,7 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     RadioGroup allgender;
     RadioButton gender;
-
+    int image=0;
 
 
     @Override
@@ -110,6 +110,7 @@ public class RegisterActivity extends AppCompatActivity {
                 intent.putExtra("EMAIL", emaill);
                 intent.putExtra("PASS", pass);
                 intent.putExtra("GENDER",gender.getText().toString());
+            //    intent.putExtra("image",)
 
 
 

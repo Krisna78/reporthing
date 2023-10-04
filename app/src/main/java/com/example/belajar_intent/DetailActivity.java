@@ -19,7 +19,7 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
 
-
+        int image = getIntent().getIntExtra("image", 0);
         Intent intent = getIntent();
         String name = intent.getStringExtra("NAME");
         String fn = intent.getStringExtra("FN");
@@ -31,6 +31,7 @@ public class DetailActivity extends AppCompatActivity {
         String gender = intent.getExtras().getString("GENDER");
 
 
+        ImageView imageView = findViewById(R.id.hasil_foto);
         TextView hasil1 = findViewById(R.id.hasil_username);
         TextView hasil2 = findViewById(R.id.hasil_fullnama);
         TextView hasil3 = findViewById(R.id.hasil_agama);
@@ -40,7 +41,7 @@ public class DetailActivity extends AppCompatActivity {
         TextView hasil7 = findViewById(R.id.hasil_password);
         TextView hasil8 = findViewById(R.id.hasil_gender);
 
-
+        imageView.setImageResource(image);
         hasil1.setText(name);
         hasil2.setText(fn);
         hasil3.setText(agamaa);
