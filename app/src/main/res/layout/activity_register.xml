@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_marginStart="30dp"
+        android:background="@color/transparan"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/transparan"
+                android:orientation="vertical"
+                android:padding="36dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Daftar"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="36dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/txt_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:hint="Username" />
+
+                <EditText
+                    android:id="@+id/txt_fullname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:hint="Fullname" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Jenis kelamin"
+                    android:textSize="16dp" />
+
+                <RadioGroup
+                    android:id="@+id/radio_grup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radio_laki"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Laki Laki" />
+
+                    <RadioButton
+                        android:id="@+id/radio_perempuan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Perempuan" />
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/txt_agama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Agama"
+                    android:layout_marginTop="10dp"/>
+
+                <EditText
+                    android:id="@+id/tanggal_lahir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:focusable="false"
+                    android:hint="Tanggal Lahir" />
+
+                <EditText
+                    android:id="@+id/txt_alamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:hint="Alamat" />
+
+                <EditText
+                    android:id="@+id/txt_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress" />
+
+                <EditText
+                    android:id="@+id/txt_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:hint="Password"
+                    android:inputType="textPassword" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Foto"
+                    android:layout_marginTop="15dp"
+                    android:textSize="18dp"/>
+
+                <ImageView
+                    android:id="@+id/foto"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"/>
+
+                <Button
+                    android:id="@+id/btn_foto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ambil Foto"
+                    android:textStyle="bold"/>
+                <Button
+                    android:id="@+id/btn_daftarr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:padding="15dp"
+                    android:text="Daftar"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

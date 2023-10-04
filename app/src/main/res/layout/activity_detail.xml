@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="6dp"
+    android:elevation="3dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:layout_margin="5dp"
+        android:gravity="start">
+
+        <ImageView
+            android:id="@+id/hasil_foto"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/angga"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/hasil_username"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="24dp"
+            android:hint="Username"
+            android:textStyle="bold"
+            android:paddingLeft="20dp"
+            android:gravity="center_horizontal"/>
+        <TextView
+            android:id="@+id/hasil_fullnama"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="nama panjang"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:paddingLeft="20dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/hasil_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="jenis kelamin"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:paddingLeft="20dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/hasil_agama"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="agama"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:paddingLeft="20dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/hasil_tanggal_lahir"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="tanggal lahir"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:paddingLeft="20dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/hasil_alamat"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="alamat"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:paddingLeft="20dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/hasil_email"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="email"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:paddingLeft="20dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/hasil_password"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="password"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:paddingLeft="20dp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
