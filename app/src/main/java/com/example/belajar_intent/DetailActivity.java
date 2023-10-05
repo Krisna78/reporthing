@@ -43,13 +43,13 @@ public class DetailActivity extends AppCompatActivity {
 
         imageView.setImageResource(image);
         hasil1.setText(name);
-        hasil2.setText(fn);
-        hasil3.setText(agamaa);
-        hasil4.setText(tgl_lahir);
-        hasil5.setText(alamatt);
-        hasil6.setText(emaill);
-        hasil7.setText(pass);
-        hasil8.setText(gender);
+        hasil2.setText("Nama Lengkap  : "+fn);
+        hasil3.setText("Agama         : "+agamaa);
+        hasil4.setText("Tanggal Lahir : "+tgl_lahir);
+        hasil5.setText("Alamat        : "+alamatt);
+        hasil6.setText("Email         : "+emaill);
+        hasil7.setText("Password      : "+pass);
+        hasil8.setText("Jenis Kelamin : "+gender);
 
     }
 }

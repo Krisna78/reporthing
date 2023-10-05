@@ -2,6 +2,7 @@ package com.example.belajar_intent;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ public class Adaptercard extends RecyclerView.Adapter<Adaptercard.ViewHolder> {
     Context context;
     private ArrayList<cardmodel> Cardmodel;
 
+    AlertDialog.Builder builder;
     public Adaptercard(Context context, ArrayList<cardmodel> cardmodel) {
         this.context = context;
         this.Cardmodel = cardmodel;
@@ -57,7 +59,6 @@ public class Adaptercard extends RecyclerView.Adapter<Adaptercard.ViewHolder> {
 
         @Override
         public void onClick(View view) {
-
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION){
                 Intent intent = new Intent(context, DetailActivity.class);

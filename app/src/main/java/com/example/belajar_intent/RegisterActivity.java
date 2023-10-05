@@ -1,12 +1,14 @@
 package com.example.belajar_intent;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -39,13 +41,14 @@ public class RegisterActivity extends AppCompatActivity {
     RadioButton gender;
     int image=0;
 
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-
+        builder = new AlertDialog.Builder(this);
 
         txt_tanggal = (EditText) findViewById(R.id.tanggal_lahir);
         dateFormatter = new SimpleDateFormat("dd-MM-yyyy");
@@ -84,37 +87,56 @@ public class RegisterActivity extends AppCompatActivity {
         final EditText email = findViewById(R.id.txt_email);
         final EditText password = findViewById(R.id.txt_password);
 
+        ImageView img = findViewById(R.id.foto);
         button2 = findViewById(R.id.btn_daftarr);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                int radioid = allgender.getCheckedRadioButtonId();
-                gender = (RadioButton) findViewById(radioid);
+                builder.setTitle("Konfirmasi")
+                        .setMessage("Apakah anda ingin melihat detail?")
+                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
 
-                String name = username.getText().toString();
-                String fn = fullname.getText().toString();
-                String agamaa = agama.getText().toString();
-                String tgl_lahir = tanggal_lahir.getText().toString();
-                String alamatt = alamat.getText().toString();
-                String emaill = email.getText().toString();
-                String pass = password.getText().toString();
+                                int radioid = allgender.getCheckedRadioButtonId();
+                                gender = (RadioButton) findViewById(radioid);
 
-
-                Intent intent = new Intent(RegisterActivity.this, DetailActivity.class);
-                intent.putExtra("NAME", name);
-                intent.putExtra("FN", fn);
-                intent.putExtra("AGAMA",agamaa);
-                intent.putExtra("TGL", tgl_lahir);
-                intent.putExtra("ALAMAT", alamatt);
-                intent.putExtra("EMAIL", emaill);
-                intent.putExtra("PASS", pass);
-                intent.putExtra("GENDER",gender.getText().toString());
-            //    intent.putExtra("image",)
+                                String name = username.getText().toString();
+                                String fn = fullname.getText().toString();
+                                String agamaa = agama.getText().toString();
+                                String tgl_lahir = tanggal_lahir.getText().toString();
+                                String alamatt = alamat.getText().toString();
+                                String emaill = email.getText().toString();
+                                String pass = password.getText().toString();
+                                //   int foto =  img.getIn.;
 
 
+                                Intent intent = new Intent(RegisterActivity.this, DetailActivity.class);
+                                intent.putExtra("NAME", name);
+                                intent.putExtra("FN", fn);
+                                intent.putExtra("AGAMA",agamaa);
+                                intent.putExtra("TGL", tgl_lahir);
+                                intent.putExtra("ALAMAT", alamatt);
+                                intent.putExtra("EMAIL", emaill);
+                                intent.putExtra("PASS", pass);
+                                intent.putExtra("GENDER",gender.getText().toString());
+                                //     intent.putExtra("image", );
 
-                startActivity(intent);
+
+
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent intent2 = new Intent(RegisterActivity.this, LoginActivity.class);
+                                startActivity(intent2);
+                            }
+                        })
+                        .show();
+
             }
         });
     }
