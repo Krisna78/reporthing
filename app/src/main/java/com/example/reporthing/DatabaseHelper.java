@@ -21,9 +21,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("Create table student(id TEXT primary key,password TEXT," +
-                "username TEXT,namaSiswa TEXT)");
+                "username TEXT,nama TEXT)");
         db.execSQL("Create table teacher(id TEXT primary key,password TEXT," +
-                "username TEXT,namaGuru TEXT)");
+                "username TEXT,nama TEXT)");
     }
 
     @Override
@@ -37,8 +37,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("id",ids);
         contentValues.put("password",pass);
         contentValues.put("username",username);
-        contentValues.put("namaGuru",name);
-        long result = sqLiteDatabase.insert("teacher",null,contentValues);
+        contentValues.put("nama",name);
+        long result = sqLiteDatabase.insert("student",null,contentValues);
         if (result == -1) {
             return false;
         } else {

@@ -1,19 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Students.StudentActivity">
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="99dp"
-        android:layout_height="52dp"
-        android:text="Siswa"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@color/colorMediumDark"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/logobrand"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Reporthing"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:textAlignment="gravity"
+                android:textSize="20dp"/>
+            <Button
+                android:id="@+id/out"
+                android:layout_marginRight="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/baseline_logout_24"
+                android:drawableTint="@color/white"
+                android:text="Keluar"
+                android:layout_marginStart="95dp"
+                android:textSize="16dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:padding="10dp"
+                app:cardCornerRadius="20dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/logo2"
+                        android:layout_margin="10dp"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nama : Yohanes Krina Desantho"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Kelas : 4A"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="NISN : 3471503626"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

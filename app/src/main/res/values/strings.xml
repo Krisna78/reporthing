@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Reporthing</string>
+    <string name="confirm_dialog_logout">Apakah anda ingin keluar ?</string>
+    <string name="confirm_logout">Keluar</string>
+    <string name="confirm">Ya</string>
+    <string name="cancel">Tidak</string>
 </resources>

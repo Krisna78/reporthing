@@ -1,12 +1,15 @@
 package com.example.reporthing.Auth;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Toast;
+import android.window.OnBackInvokedCallback;
 
 import com.example.reporthing.DatabaseHelper;
 import com.example.reporthing.R;
@@ -15,6 +18,7 @@ import com.example.reporthing.Teachers.TeacherActivity;
 import com.example.reporthing.databinding.ActivityAuthBinding;
 
 public class AuthActivity extends AppCompatActivity {
+    private boolean isBackPressedOnce = false;
     public String reciveData;
     ActivityAuthBinding binding;
     DatabaseHelper databaseHelper;
@@ -33,7 +37,6 @@ public class AuthActivity extends AppCompatActivity {
                     Toast.makeText(AuthActivity.this, "Masukkan Username dan Password", Toast.LENGTH_SHORT).show();
                 } else {
                     String checkCredentials = databaseHelper.checkUsername(email,password);
-                    binding.show.setText(checkCredentials);
                     if (checkCredentials.equals("student")) {
                         Toast.makeText(AuthActivity.this, "Selamat Datang, " + email, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), StudentActivity.class);
@@ -57,5 +60,19 @@ public class AuthActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    public void onBackPressed() {
+        if (isBackPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+        Toast.makeText(this, "Tekan Lagi Tombol Kembali!", Toast.LENGTH_SHORT).show();
+        isBackPressedOnce = true;
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                isBackPressedOnce = false;
+            }
+        },1000);
     }
 }
