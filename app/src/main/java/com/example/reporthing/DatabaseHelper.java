@@ -46,7 +46,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
     public String checkUsername(String username, String password) {
-        String sendData;
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         Cursor cursorStudent = sqLiteDatabase.rawQuery("select * from student where username = ? and password = ? ",new String[]{username,password});
         Cursor cursorTeacher = sqLiteDatabase.rawQuery("select * from teacher where username = ? and password = ? ",new String[]{username,password});
@@ -57,10 +56,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         } else {
             return "salah";
         }
-//        if(cursor.getCount() > 0 ) {
-//            return true;
-//        } else {
-//            return false;
-//        }
     }
 }
