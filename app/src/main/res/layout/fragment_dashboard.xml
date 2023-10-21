@@ -7,12 +7,36 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="10dp">
+        android:orientation="vertical">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10dp"
-            android:text="Capaian Hasil Belajar Siswa"/>
+            android:background="@drawable/custom_rounded"
+            android:layout_margin="8dp"
+            android:elevation="5dp"
+            android:text="Capaian Hasil Belajar Siswa">
+        </TextView>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="693dp"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tahun Ajaran 2021/2022"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="7dp"
+                android:textSize="18dp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/pelajaran"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"/>
+        </LinearLayout>
     </LinearLayout>
 </FrameLayout>

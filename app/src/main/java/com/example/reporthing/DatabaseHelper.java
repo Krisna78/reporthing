@@ -12,10 +12,10 @@ import androidx.annotation.Nullable;
 import com.example.reporthing.Auth.AuthActivity;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String databaseName = "db_master.db";
-    public static final Integer versions = 1;
+    public static final String DB_NAME = "db_master.db";
+    public static final Integer VERSIONS = 1;
     public DatabaseHelper(@Nullable Context context) {
-        super(context,databaseName,null,versions);
+        super(context,DB_NAME,null,VERSIONS);
     }
 
     @Override

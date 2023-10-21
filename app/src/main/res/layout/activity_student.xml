@@ -17,29 +17,31 @@
             android:orientation="horizontal"
             android:layout_margin="10dp">
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/logobrand"/>
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/logobrand"
+                android:layout_gravity="center_vertical"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="Reporthing"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="5dp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:gravity="center_vertical"
                 android:textAlignment="gravity"
-                android:textSize="20dp"/>
+                android:textSize="18dp"/>
+
             <Button
                 android:id="@+id/out"
-                android:layout_marginRight="0dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/baseline_logout_24"
                 android:drawableTint="@color/white"
                 android:text="Keluar"
-                android:layout_marginStart="95dp"
-                android:textSize="16dp"/>
+                android:layout_marginLeft="50dp"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,10 +60,11 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
                     <ImageView
-                        android:layout_width="100dp"
+                        android:layout_width="80dp"
                         android:layout_height="match_parent"
                         android:src="@drawable/logo2"
-                        android:layout_margin="10dp"/>
+                        android:layout_margin="10dp"
+                        android:layout_gravity="center_vertical"/>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"

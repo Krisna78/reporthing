@@ -1,9 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Reporthing" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:spotShadowAlpha">0.6</item>
+        <item name="colorPrimary">@color/colorMedium</item>
+        <item name="colorPrimaryVariant">@color/colorMediumDark</item>
+        <item name="buttonStyle">@android:style/Widget.Button</item>
+        <item name="android:statusBarColor">@color/black</item>
     </style>
-
     <style name="Theme.Reporthing" parent="Base.Theme.Reporthing"/>
 </resources>
