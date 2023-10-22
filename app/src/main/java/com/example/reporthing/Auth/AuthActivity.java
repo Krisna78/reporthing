@@ -4,7 +4,9 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -20,6 +22,8 @@ import com.example.reporthing.databinding.ActivityAuthBinding;
 public class AuthActivity extends AppCompatActivity {
     private boolean isBackPressedOnce = false;
     public String reciveData;
+    public String email,password;
+    SharedPreferences sharedPreferences;
     ActivityAuthBinding binding;
     DatabaseHelper databaseHelper;
     @Override
@@ -28,11 +32,31 @@ public class AuthActivity extends AppCompatActivity {
         binding = ActivityAuthBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         databaseHelper = new DatabaseHelper(this);
+
+        sharedPreferences = getSharedPreferences("isLogin", Context.MODE_PRIVATE);
+        if (sharedPreferences.getBoolean("isLogin",false) != false) {
+            String sessionEmail = sharedPreferences.getString("email",null);
+            String checkCredentials = databaseHelper.checkUsername(sharedPreferences.getString("email",null),sharedPreferences.getString("password",null));
+            if (checkCredentials.equals("student")) {
+                Toast.makeText(AuthActivity.this, "Selamat Datang, " + sessionEmail, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), StudentActivity.class);
+                startActivity(intent);
+                finish();
+            } else if(checkCredentials.equals("teacher")) {
+                Toast.makeText(AuthActivity.this, "Selamat Datang, " + sessionEmail, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), TeacherActivity.class);
+                startActivity(intent);
+                finish();
+            } else {
+                Toast.makeText(AuthActivity.this, "Error", Toast.LENGTH_SHORT).show();
+            }
+        }
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String email = binding.usernameField.getText().toString();
-                String password = binding.passwordField.getText().toString();
+                email = binding.usernameField.getText().toString();
+                password = binding.passwordField.getText().toString();
+                SharedPreferences.Editor editor = sharedPreferences.edit();
                 if (email.isEmpty() || password.isEmpty()){
                     Toast.makeText(AuthActivity.this, "Masukkan Username dan Password", Toast.LENGTH_SHORT).show();
                 } else {
@@ -41,11 +65,19 @@ public class AuthActivity extends AppCompatActivity {
                         Toast.makeText(AuthActivity.this, "Selamat Datang, " + email, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), StudentActivity.class);
                         startActivity(intent);
+                        editor.putString("email",email);
+                        editor.putString("password",password);
+                        editor.putBoolean("isLogin",true);
+                        editor.apply();
                         finish();
                     } else if(checkCredentials.equals("teacher")) {
                         Toast.makeText(AuthActivity.this, "Selamat Datang, " + email, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), TeacherActivity.class);
                         startActivity(intent);
+                        editor.putString("email",email);
+                        editor.putString("password",password);
+                        editor.putBoolean("isLogin",true);
+                        editor.apply();
                         finish();
                     } else {
                         Toast.makeText(AuthActivity.this, "Error", Toast.LENGTH_SHORT).show();
@@ -66,7 +98,7 @@ public class AuthActivity extends AppCompatActivity {
             super.onBackPressed();
             return;
         }
-        Toast.makeText(this, "Tekan Lagi Tombol Kembali!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Tekan Lagi Tombol Kembali", Toast.LENGTH_SHORT).show();
         isBackPressedOnce = true;
         new Handler().postDelayed(new Runnable() {
             @Override

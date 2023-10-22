@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,6 +20,7 @@ import com.example.reporthing.Auth.AuthActivity;
 import com.example.reporthing.R;
 
 public class StudentActivity extends AppCompatActivity {
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,8 @@ public class StudentActivity extends AppCompatActivity {
                         .setTitle(R.string.confirm_logout)
                         .setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
+                                SharedPreferences sp = getSharedPreferences("isLogin",Context.MODE_PRIVATE);
+                                sp.edit().putBoolean("isLogin",false).apply();
                                 Intent intent = new Intent(getApplicationContext(),AuthActivity.class);
                                 startActivity(intent);
                                 finish();
