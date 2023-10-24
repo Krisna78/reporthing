@@ -1,19 +1,30 @@
 package com.example.reporthing;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
 import com.example.reporthing.Auth.AuthActivity;
+import com.example.reporthing.Students.Models.ModelShowProfile;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "db_master.db";
+    public static final String TABLE_STUDENT = "student";
     public static final Integer VERSIONS = 1;
+    public static final String COLUMN_ID = "id";
+//    public static final String COLUMN_DATA = "id";
     public DatabaseHelper(@Nullable Context context) {
         super(context,DB_NAME,null,VERSIONS);
     }
@@ -57,4 +68,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return "salah";
         }
     }
+//    public String showProfileStudent(String username, String password) {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor = db.rawQuery("SELECT * from student where username = ? And password = ?", new String[]{username,password});
+//        String output = null;
+//        if (cursor.moveToFirst()) {
+//            String id = cursor.getString(0);
+//            String dataPassword = cursor.getString(1);
+//            String dataUsername = cursor.getString(2);
+//            String nama = cursor.getString(3);
+//            output = id ;
+//        }
+//        cursor.close();
+//        return "ID nya " + output;
+//    }
 }
