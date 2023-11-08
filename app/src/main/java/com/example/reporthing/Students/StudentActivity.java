@@ -1,35 +1,40 @@
 package com.example.reporthing.Students;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.reporthing.Auth.AuthActivity;
-import com.example.reporthing.DatabaseHelper;
 import com.example.reporthing.R;
+import com.example.reporthing.Students.Models.ProfileResponse;
+import com.google.gson.Gson;
+
+import java.util.HashMap;
 
 public class StudentActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     TextView name,kelas,nisn;
-    private DatabaseHelper dbHelper;
+    Gson gson = new Gson();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +43,11 @@ public class StudentActivity extends AppCompatActivity {
         name = findViewById(R.id.studentName);
         kelas = findViewById(R.id.studentClass);
         nisn = findViewById(R.id.studentNISN);
-
-
         Button out = findViewById(R.id.out);
-        dbHelper = new DatabaseHelper(this);
+
         SharedPreferences sp = getSharedPreferences("isLogin",Context.MODE_PRIVATE);
-        showProfileStudent(sp.getString("email",null),sp.getString("password",null));
+        showProfile(sp.getString("id",null));
+
         out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,19 +91,32 @@ public class StudentActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    public void showProfileStudent(String username, String password) {
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * from student where username = ? And password = ?", new String[]{username,password});
-        String output = null;
-        if (cursor.moveToFirst()) {
-            String id = cursor.getString(0);
-            String dataPassword = cursor.getString(1);
-            String dataUsername = cursor.getString(2);
-            String nama = cursor.getString(3);
-
-            name.setText("Nama: "+nama);
-            kelas.setText("Kelas: "+dataUsername);
-            nisn.setText("NISN: "+id);
-        }
+    private void showProfile(String profileID) {
+        String url = "http://10.10.185.177/reporthingAPI/showProfile.php";
+        StringRequest request = new StringRequest(Request.Method.GET, url + "?id=" + profileID, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                ProfileResponse profileResponse = gson.fromJson(response.toString(),ProfileResponse.class);
+                name.setText("Nama: " + profileResponse.getUserProfile().get(0).getNamaSiswa());
+                kelas.setText("Kelas: "+ profileResponse.getUserProfile().get(0).getNamaKelas());
+                nisn.setText("NISN: "+ profileResponse.getUserProfile().get(0).getNisn());
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(StudentActivity.this, "Error", Toast.LENGTH_SHORT).show();
+            }
+        })
+        {
+            @Nullable
+            @Override
+            protected HashMap<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> params = new HashMap<>();
+                params.put("id",profileID);
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(request);
     }
 }

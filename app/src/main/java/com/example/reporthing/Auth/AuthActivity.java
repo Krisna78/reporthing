@@ -1,6 +1,7 @@
 package com.example.reporthing.Auth;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -13,75 +14,90 @@ import android.view.View;
 import android.widget.Toast;
 import android.window.OnBackInvokedCallback;
 
-import com.example.reporthing.DatabaseHelper;
-import com.example.reporthing.R;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.example.reporthing.Auth.models.UserResponse;
 import com.example.reporthing.Students.StudentActivity;
-import com.example.reporthing.Teachers.TeacherActivity;
 import com.example.reporthing.databinding.ActivityAuthBinding;
+import com.google.gson.Gson;
+
+import java.util.HashMap;
 
 public class AuthActivity extends AppCompatActivity {
     private boolean isBackPressedOnce = false;
-    public String reciveData;
-    public String email,password;
+    public String userName,password;
     SharedPreferences sharedPreferences;
     ActivityAuthBinding binding;
-    DatabaseHelper databaseHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityAuthBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        databaseHelper = new DatabaseHelper(this);
 
         sharedPreferences = getSharedPreferences("isLogin", Context.MODE_PRIVATE);
         if (sharedPreferences.getBoolean("isLogin",false) != false) {
-            String sessionEmail = sharedPreferences.getString("email",null);
-            String checkCredentials = databaseHelper.checkUsername(sharedPreferences.getString("email",null),sharedPreferences.getString("password",null));
-            if (checkCredentials.equals("student")) {
-                Toast.makeText(AuthActivity.this, "Selamat Datang, " + sessionEmail, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), StudentActivity.class);
-                startActivity(intent);
-                finish();
-            } else if(checkCredentials.equals("teacher")) {
-                Toast.makeText(AuthActivity.this, "Selamat Datang, " + sessionEmail, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), TeacherActivity.class);
-                startActivity(intent);
-                finish();
-            } else {
-                Toast.makeText(AuthActivity.this, "Error", Toast.LENGTH_SHORT).show();
-            }
+            String sessionEmail = sharedPreferences.getString("username",null);
+            Toast.makeText(AuthActivity.this, "Selamat Datang, " + sessionEmail, Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getApplicationContext(), StudentActivity.class);
+            startActivity(intent);
+            finish();
         }
+
         binding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                email = binding.usernameField.getText().toString();
+                userName = binding.usernameField.getText().toString();
                 password = binding.passwordField.getText().toString();
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                if (email.isEmpty() || password.isEmpty()){
-                    Toast.makeText(AuthActivity.this, "Masukkan Username dan Password", Toast.LENGTH_SHORT).show();
-                } else {
-                    String checkCredentials = databaseHelper.checkUsername(email,password);
-                    if (checkCredentials.equals("student")) {
-                        Toast.makeText(AuthActivity.this, "Selamat Datang, " + email, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), StudentActivity.class);
-                        startActivity(intent);
-                        editor.putString("email",email);
-                        editor.putString("password",password);
-                        editor.putBoolean("isLogin",true);
-                        editor.apply();
-                        finish();
-                    } else if(checkCredentials.equals("teacher")) {
-                        Toast.makeText(AuthActivity.this, "Selamat Datang, " + email, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getApplicationContext(), TeacherActivity.class);
-                        startActivity(intent);
-                        editor.putString("email",email);
-                        editor.putString("password",password);
-                        editor.putBoolean("isLogin",true);
-                        editor.apply();
-                        finish();
-                    } else {
-                        Toast.makeText(AuthActivity.this, "Error", Toast.LENGTH_SHORT).show();
-                    }
+                if (userName.isEmpty() || password.isEmpty()){
+                    Toast.makeText(AuthActivity.this, userName, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(AuthActivity.this, "Masukkan Username dan Password", Toast.LENGTH_SHORT).show();
+                } else if (!(userName.isEmpty() || password.isEmpty()) ){
+                    Gson gson = new Gson();
+                    String url = "http://10.10.185.177/reporthingAPI/Auth.php";
+                    StringRequest request = new StringRequest(Request.Method.GET, url + "?username=" + userName + "&password=" + password, new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            UserResponse authResponse = gson.fromJson(response.toString(), UserResponse.class);
+                            if (authResponse.getCode() == 200) {
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                Toast.makeText(AuthActivity.this, "Selamat Datang, " + authResponse.getUserList().get(0).getUsername(), Toast.LENGTH_SHORT).show();
+                                editor.putString("id",authResponse.getUserList().get(0).getIdUserSiswa());
+                                editor.putString("username",userName);
+                                editor.putString("password",password);
+                                editor.putBoolean("isLogin",true);
+                                editor.apply();
+                                Intent intent = new Intent(getApplicationContext(), StudentActivity.class);
+                                startActivity(intent);
+                                finish();
+                            } else if (authResponse.getCode() == 401) {
+                                Toast.makeText(AuthActivity.this, "Password anda salah", Toast.LENGTH_SHORT).show();
+                            } else if (authResponse.getCode() == 404) {
+                                Toast.makeText(AuthActivity.this, "Username tidak terdaftar", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Toast.makeText(AuthActivity.this, "Error"+error.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    {
+                        @Nullable
+                        @Override
+                        protected HashMap<String, String> getParams() throws AuthFailureError {
+                            HashMap<String,String> params = new HashMap<>();
+                            params.put("username",userName);
+                            params.put("password",password);
+                            return params;
+                        }
+                    };
+                    RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+                    requestQueue.add(request);
                 }
             }
         });
@@ -89,6 +105,13 @@ public class AuthActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AuthActivity.this,SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
+        binding.forgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AuthActivity.this,ForgotPassActivity.class);
                 startActivity(intent);
             }
         });

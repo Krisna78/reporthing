@@ -79,21 +79,34 @@
                     android:inputType="textPassword"/>
             </com.google.android.material.textfield.TextInputLayout>
             <TextView
-                android:id="@+id/signup"
+                android:id="@+id/forgotPass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="right"
+                android:textAlignment="gravity"
                 android:text="Lupa Password ?"
                 android:paddingTop="15dp"/>
             <Button
                 android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:padding="15dp"
                 android:text="Masuk"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign Up"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:background="@color/colorMedium"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

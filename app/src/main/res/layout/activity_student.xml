@@ -39,7 +39,7 @@
                 android:drawableLeft="@drawable/baseline_logout_24"
                 android:drawableTint="@color/white"
                 android:text="Keluar"
-                android:layout_marginLeft="70dp"
+                android:layout_marginLeft="90dp"
                 android:textColor="@color/white"
                 android:textSize="16dp" />
         </LinearLayout>
