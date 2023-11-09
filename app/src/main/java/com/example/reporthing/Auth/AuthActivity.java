@@ -22,6 +22,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.reporthing.Auth.models.UserResponse;
+import com.example.reporthing.DB_url;
 import com.example.reporthing.Students.StudentActivity;
 import com.example.reporthing.databinding.ActivityAuthBinding;
 import com.google.gson.Gson;
@@ -58,8 +59,7 @@ public class AuthActivity extends AppCompatActivity {
                     //Toast.makeText(AuthActivity.this, "Masukkan Username dan Password", Toast.LENGTH_SHORT).show();
                 } else if (!(userName.isEmpty() || password.isEmpty()) ){
                     Gson gson = new Gson();
-                    String url = "http://10.10.185.177/reporthingAPI/Auth.php";
-                    StringRequest request = new StringRequest(Request.Method.GET, url + "?username=" + userName + "&password=" + password, new Response.Listener<String>() {
+                    StringRequest request = new StringRequest(Request.Method.GET, DB_url.urlAuth + "?username=" + userName + "&password=" + password, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
                             UserResponse authResponse = gson.fromJson(response.toString(), UserResponse.class);

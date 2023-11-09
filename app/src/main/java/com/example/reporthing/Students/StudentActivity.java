@@ -25,6 +25,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.reporthing.Auth.AuthActivity;
+import com.example.reporthing.DB_url;
 import com.example.reporthing.R;
 import com.example.reporthing.Students.Models.ProfileResponse;
 import com.google.gson.Gson;
@@ -92,8 +93,7 @@ public class StudentActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     private void showProfile(String profileID) {
-        String url = "http://10.10.185.177/reporthingAPI/showProfile.php";
-        StringRequest request = new StringRequest(Request.Method.GET, url + "?id=" + profileID, new Response.Listener<String>() {
+        StringRequest request = new StringRequest(Request.Method.GET, DB_url.urlProfile + "?id=" + profileID, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 ProfileResponse profileResponse = gson.fromJson(response.toString(),ProfileResponse.class);

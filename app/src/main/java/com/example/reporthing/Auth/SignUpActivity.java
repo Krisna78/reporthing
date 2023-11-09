@@ -6,20 +6,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
-
-import com.example.reporthing.DatabaseHelper;
+//
+//import com.example.reporthing.DatabaseHelper;
 import com.example.reporthing.R;
 import com.example.reporthing.databinding.ActivitySignUpBinding;
 
 public class SignUpActivity extends AppCompatActivity {
     ActivitySignUpBinding binding;
-    DatabaseHelper databaseHelper;
+//    DatabaseHelper databaseHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySignUpBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        databaseHelper = new DatabaseHelper(this);
+//        databaseHelper = new DatabaseHelper(this);
         binding.signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -29,13 +29,13 @@ public class SignUpActivity extends AppCompatActivity {
                 String name = binding.nama.getText().toString();
                 if(id.isEmpty()||password.isEmpty()||username.isEmpty()||name.isEmpty())
                     Toast.makeText(SignUpActivity.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
-                else {
-                    Boolean insert = databaseHelper.insertData(id,username,password,name);
-                    if (insert == true) {
-                        Intent intent = new Intent(getApplicationContext(),AuthActivity.class);
-                        startActivity(intent);
-                    }
-                }
+//                else {
+////                    Boolean insert = databaseHelper.insertData(id,username,password,name);
+//                    if (insert == true) {
+//                        Intent intent = new Intent(getApplicationContext(),AuthActivity.class);
+//                        startActivity(intent);
+//                    }
+//                }
             }
         });
         binding.loginRedirectText.setOnClickListener(new View.OnClickListener() {
