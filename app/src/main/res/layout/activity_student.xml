@@ -94,10 +94,12 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <FrameLayout
-            android:id="@+id/frameView"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerSemester"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </FrameLayout>
+            android:layout_height="match_parent"
+            tools:listitem="@layout/card_list_semester"
+            android:padding="15dp">
+        </androidx.recyclerview.widget.RecyclerView>
     </ScrollView>
 </LinearLayout>

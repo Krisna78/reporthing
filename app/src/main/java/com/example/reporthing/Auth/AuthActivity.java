@@ -67,6 +67,7 @@ public class AuthActivity extends AppCompatActivity {
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 Toast.makeText(AuthActivity.this, "Selamat Datang, " + authResponse.getUserList().get(0).getUsername(), Toast.LENGTH_SHORT).show();
                                 editor.putString("id",authResponse.getUserList().get(0).getIdUserSiswa());
+                                editor.putString("nisn",authResponse.getUserList().get(0).getNisn());
                                 editor.putString("username",userName);
                                 editor.putString("password",password);
                                 editor.putBoolean("isLogin",true);
