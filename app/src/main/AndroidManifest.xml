@@ -17,13 +17,7 @@
         android:theme="@style/Theme.Belajar_Intent"
         tools:targetApi="31">
         <activity
-            android:name=".ReyclerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".RegisterActivity"
+            android:name=".SiswaActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

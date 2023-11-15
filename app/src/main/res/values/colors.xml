@@ -5,4 +5,10 @@
     <color name="biru">#2E3192</color>
     <color name="transparan">#C6E5FF</color>
     <color name="birumuda">#4EA7FF</color>
+    <color name="kuning">#F4E869</color>
+    <color name="start_color">#9EDDFF</color>
+    <color name="end_color">#2E81FE</color>
+    <color name="bias">#FFFD8C</color>
+    <color name="abu">#888282</color>
+
 </resources>

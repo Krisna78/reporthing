@@ -1,4 +1,4 @@
-package com.example.belajar_intent;
+package com.example.reporthing;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +21,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 finish();
             }
-        }, 3000);
+        }, 2200);
     }
 }

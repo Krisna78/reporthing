@@ -4,14 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="@drawable/background_login"
+    >
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_bird"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.256"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/ic_bird"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.777"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="22dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="128dp"
+        android:src="@drawable/ic_bird"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/logo"
         android:layout_width="96dp"
         android:layout_height="103dp"
         android:layout_marginTop="28dp"
-        android:src="@drawable/logo_biru"
+        android:src="@drawable/logo_putih"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="Selamat Datang"
+        android:textColor="@color/white"
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/logo"
@@ -40,11 +73,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="390dp"
             android:layout_gravity="center_horizontal"
             android:background="@color/transparan"
             android:orientation="vertical"
@@ -53,46 +87,83 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Masuk"
+                android:text="Masuk Untuk Lanjut"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="36dp"
-                android:textStyle="bold" />
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"/>
 
-            <EditText
-                android:id="@+id/username"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/teksinputlayout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:hint="Username" />
-
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_below="@+id/teksinputlayout"
                 android:layout_marginTop="30dp"
-                android:hint="Password" />
+                android:hint="Username"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:startIconDrawable="@drawable/vector"
+                app:boxStrokeColor="#6499E9"
+
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/teksinputedit1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/teksinputlayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/teksinputlayout"
+                android:layout_marginTop="10dp"
+                android:hint="Password"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                app:startIconDrawable="@drawable/ic_lock"
+                app:endIconMode="password_toggle"
+                app:boxStrokeColor="#6499E9"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/teksinputedit2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-                android:id="@+id/btn_daftar"
+                android:id="@+id/btn_lupapassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Daftar"
+                android:text="Lupa Password"
                 android:textColor="@color/birumuda"
-                android:gravity="end"
+                android:gravity="start"
                 android:paddingEnd="8dp"
                 android:textSize="15dp"
-                android:onClick="daftar"/>
+                android:onClick="lupa"
+                android:layout_marginTop="5dp"/>
 
             <Button
+                android:layout_marginStart="28dp"
                 android:id="@+id/btn_login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="30dp"
+                android:backgroundTint="#3787AA"
+                android:onClick="masuk"
                 android:padding="15dp"
                 android:text="Masuk"
+                android:textSize="20dp"
                 android:textStyle="bold"
-                android:onClick="masuk"/>
+                android:gravity="center"
+                />
 
         </LinearLayout>
 

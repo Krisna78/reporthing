@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Belajar_Intent"
+rootProject.name = "Reporthing"
 include(":app")
  
