@@ -28,7 +28,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bahasa Indonesia"
-                    android:textSize="18dp" />
+                    android:textStyle="bold"
+                    android:textSize="21dp" />
 
                 <TextView
                     android:id="@+id/value_subject"
@@ -36,8 +37,8 @@
                     android:layout_height="wrap_content"
                     android:text="90.00"
                     android:textColor="@color/colorMediumDark"
-                    android:textSize="21dp"
-                    android:textStyle="bold" />
+                    android:textSize="18dp"
+                    android:textStyle="bold"/>
             </LinearLayout>
             <ImageView
                 android:layout_width="match_parent"

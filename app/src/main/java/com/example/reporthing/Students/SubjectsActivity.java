@@ -48,19 +48,9 @@ public class SubjectsActivity extends AppCompatActivity {
         String thnAjaranCode = getIntent().getStringExtra("thn_ajaran");
         String smst = getIntent().getStringExtra("semester");
 
-        txtIpas = findViewById(R.id.value_subject_ipas);
-        txtBindo = findViewById(R.id.value_subject_bindo);
-        txtMtk = findViewById(R.id.value_subject_mtk);
-        txtRupa = findViewById(R.id.value_subject_rupa);
-        txtMusik = findViewById(R.id.value_subject_musik);
-        txtTari = findViewById(R.id.value_subject_tari);
-        txtPjok = findViewById(R.id.value_subject_pjok);
-        txtTeater = findViewById(R.id.value_subject_teater);
-        txtBing = findViewById(R.id.value_subject_inggris);
-
-/*        recyclerView = findViewById(R.id.subject_recyclerview);*/
-//        getSubjects(nisnCode,thnAjaranCode,smst);
-        showSubjectValue(nisnCode,thnAjaranCode,smst);
+        recyclerView = findViewById(R.id.subject_recyclerview);
+        getSubjects(nisnCode,thnAjaranCode,smst);
+        /*showSubjectValue(nisnCode,thnAjaranCode,smst);*/
     }
     private void getSubjects(String nisn,String thnAjaran,String semesters) {
         StringRequest request = new StringRequest(Request.Method.GET, DB_url.urlSubjects + "?id=" + nisn + "&thn_ajaran=" + thnAjaran+ "&semester=" + semesters, new Response.Listener<String>() {
@@ -74,6 +64,10 @@ public class SubjectsActivity extends AppCompatActivity {
                         subjectModel = new SubjectsData();
                         JSONObject data = jsonArray.getJSONObject(i);
                         subjectModel.setSemester(data.getString("semester"));
+                        subjectModel.setNamaMapel(data.getString("nama_mapel"));
+                        subjectModel.setNilaiRapor(data.getString("nilai_rapor"));
+                        subjectModel.setSumatif(data.getString("sumatif"));
+                        subjectModel.setSumatifAkhir(data.getString("sumatif_akhir"));
                         dataSubject.add(subjectModel);
                     }
                     if(dataSubject.isEmpty()) {
@@ -110,7 +104,7 @@ public class SubjectsActivity extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(request);
     }
-    private void showSubjectValue(String id,String thn_ajaran,String semester) {
+    /*private void showSubjectValue(String id,String thn_ajaran,String semester) {
         StringRequest request = new StringRequest(Request.Method.GET, DB_url.urlSubjects + "?id=" + id + "&thn_ajaran=" + thn_ajaran + "&semester=" + semester, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -143,5 +137,5 @@ public class SubjectsActivity extends AppCompatActivity {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         requestQueue.add(request);
-    }
+    }*/
 }

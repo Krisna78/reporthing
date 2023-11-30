@@ -64,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <androidx.cardview.widget.CardView
+<!--                <androidx.cardview.widget.CardView
                     android:layout_width="55dp"
                     android:layout_height="match_parent"
                     app:cardElevation="5dp"
@@ -150,9 +150,9 @@
                             android:layout_marginBottom="5dp"
                             android:textAlignment="center"/>
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>-->
                 <androidx.cardview.widget.CardView
-                    android:layout_width="55dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     app:cardElevation="5dp"
                     android:layout_margin="5dp"
@@ -165,11 +165,12 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="S"
+                            android:text="Sumatif"
                             android:textStyle="bold"
                             android:textAlignment="center"
                             android:textSize="21dp"/>
                         <TextView
+                            android:id="@+id/nilai_sumatif"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="90"
@@ -194,7 +195,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <LinearLayout
+<!--                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -255,9 +256,9 @@
                                 android:textSize="21dp" />
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
-                </LinearLayout>
+                </LinearLayout>-->
                 <androidx.cardview.widget.CardView
-                    android:layout_width="55dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     app:cardElevation="5dp"
                     android:layout_margin="5dp"
@@ -270,11 +271,43 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="AS"
+                            android:text="Akhir Semester"
                             android:textStyle="bold"
                             android:textAlignment="center"
                             android:textSize="21dp"/>
                         <TextView
+                            android:id="@+id/nilai_sumatif_akhir"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="90"
+                            android:textColor="@color/colorMedium"
+                            android:layout_marginTop="5dp"
+                            android:textStyle="bold"
+                            android:textSize="21dp"
+                            android:layout_marginBottom="5dp"
+                            android:textAlignment="center"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:cardElevation="5dp"
+                    android:layout_margin="5dp"
+                    app:cardCornerRadius="10dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_margin="10dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Nilai Rapor"
+                            android:textStyle="bold"
+                            android:textAlignment="center"
+                            android:textSize="21dp"/>
+                        <TextView
+                            android:id="@+id/nilai_rapor"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="90"
@@ -292,104 +325,6 @@
                 android:layout_height="wrap_content"
                 android:text="Nilai Akhir = (A + AS) / 2"
                 android:textSize="14dp"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="20dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Penilaian Sikap"
-                    android:textSize="21dp"
-                    android:textStyle="bold"/>
-                <androidx.cardview.widget.CardView
-                    android:layout_width="200dp"
-                    android:layout_height="match_parent"
-                    app:cardCornerRadius="5dp"
-                    app:cardElevation="5dp"
-                    android:layout_margin="5dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="150dp"
-                            android:layout_height="match_parent"
-                            android:textStyle="bold"
-                            android:textSize="18dp"
-                            android:layout_margin="5dp"
-                            android:gravity="center_vertical"
-                            android:text="Spiritual"/>
-
-                        <TextView
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginRight="0dp"
-                            android:text="A"
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:textSize="21dp" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-                <androidx.cardview.widget.CardView
-                    android:layout_width="200dp"
-                    android:layout_height="match_parent"
-                    app:cardCornerRadius="5dp"
-                    app:cardElevation="5dp"
-                    android:layout_margin="5dp">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="150dp"
-                            android:layout_height="match_parent"
-                            android:textStyle="bold"
-                            android:textSize="18dp"
-                            android:layout_margin="5dp"
-                            android:gravity="center_vertical"
-                            android:text="Sosial"/>
-
-                        <TextView
-                            android:layout_width="40dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginRight="0dp"
-                            android:text="A"
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:textSize="21dp" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="A = Sangat Baik, B = Baik, C = Cukup, D = Kurang"
-                    android:textSize="14dp"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Deskripsi"
-                    android:textSize="21dp"
-                    android:textStyle="bold"/>
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cardElevation="5dp"
-                    android:layout_margin="5dp"
-                    app:cardCornerRadius="10dp">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="10dp"
-                        android:textColor="@color/grey"
-                        android:text="Peserta didik mencapai ketuntasan tahap mahir dalam mengidentifikasi tokoh, informasi dari cerita, makna kosakata baru, kosakata homonim, kalimat transitif, ide pokok, kalimat persuasif, serta tanda baca sesuai ejaan bahasa Indonesia"/>
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></LinearLayout>
     </LinearLayout>
 </ScrollView>

@@ -4,65 +4,36 @@ import com.google.gson.annotations.SerializedName;
 
 public class SubjectsData {
 
-	@SerializedName("pjok")
-	private String pjok;
-
-	@SerializedName("bahasa_inggris")
-	private String bahasaInggris;
+	@SerializedName("id_tahunajaran")
+	private String idTahunajaran;
 
 	@SerializedName("nisn")
 	private String nisn;
 
-	@SerializedName("mtk")
-	private String mtk;
+	@SerializedName("nama_mapel")
+	private String namaMapel;
 
-	@SerializedName("ipas")
-	private String ipas;
-
-	@SerializedName("seni_tari")
-	private String seniTari;
-
-	@SerializedName("rata_rata")
-	private String rataRata;
-
-	@SerializedName("tahun_ajaran")
-	private String tahunAjaran;
-
-	@SerializedName("bahasa_indonesia")
-	private String bahasaIndonesia;
-
-	@SerializedName("nama_siswa")
-	private String namaSiswa;
-
-	@SerializedName("seni_rupa")
-	private String seniRupa;
+	@SerializedName("sumatif")
+	private String sumatif;
 
 	@SerializedName("semester")
 	private String semester;
 
-	@SerializedName("id_kelas")
-	private String idKelas;
+	@SerializedName("sumatif_akhir")
+	private String sumatifAkhir;
 
-	@SerializedName("seni_musik")
-	private String seniMusik;
+	@SerializedName("tahun_ajaran")
+	private String tahunAjaran;
 
-	@SerializedName("seni_teater")
-	private String seniTeater;
+	@SerializedName("nilai_rapor")
+	private String nilaiRapor;
 
-	public void setPjok(String pjok){
-		this.pjok = pjok;
+	public void setIdTahunajaran(String idTahunajaran){
+		this.idTahunajaran = idTahunajaran;
 	}
 
-	public String getPjok(){
-		return pjok;
-	}
-
-	public void setBahasaInggris(String bahasaInggris){
-		this.bahasaInggris = bahasaInggris;
-	}
-
-	public String getBahasaInggris(){
-		return bahasaInggris;
+	public String getIdTahunajaran(){
+		return idTahunajaran;
 	}
 
 	public void setNisn(String nisn){
@@ -73,68 +44,20 @@ public class SubjectsData {
 		return nisn;
 	}
 
-	public void setMtk(String mtk){
-		this.mtk = mtk;
+	public void setNamaMapel(String namaMapel){
+		this.namaMapel = namaMapel;
 	}
 
-	public String getMtk(){
-		return mtk;
+	public String getNamaMapel(){
+		return namaMapel;
 	}
 
-	public void setIpas(String ipas){
-		this.ipas = ipas;
+	public void setSumatif(String sumatif){
+		this.sumatif = sumatif;
 	}
 
-	public String getIpas(){
-		return ipas;
-	}
-
-	public void setSeniTari(String seniTari){
-		this.seniTari = seniTari;
-	}
-
-	public String getSeniTari(){
-		return seniTari;
-	}
-
-	public void setRataRata(String rataRata){
-		this.rataRata = rataRata;
-	}
-
-	public String getRataRata(){
-		return rataRata;
-	}
-
-	public void setTahunAjaran(String tahunAjaran){
-		this.tahunAjaran = tahunAjaran;
-	}
-
-	public String getTahunAjaran(){
-		return tahunAjaran;
-	}
-
-	public void setBahasaIndonesia(String bahasaIndonesia){
-		this.bahasaIndonesia = bahasaIndonesia;
-	}
-
-	public String getBahasaIndonesia(){
-		return bahasaIndonesia;
-	}
-
-	public void setNamaSiswa(String namaSiswa){
-		this.namaSiswa = namaSiswa;
-	}
-
-	public String getNamaSiswa(){
-		return namaSiswa;
-	}
-
-	public void setSeniRupa(String seniRupa){
-		this.seniRupa = seniRupa;
-	}
-
-	public String getSeniRupa(){
-		return seniRupa;
+	public String getSumatif(){
+		return sumatif;
 	}
 
 	public void setSemester(String semester){
@@ -145,27 +68,27 @@ public class SubjectsData {
 		return semester;
 	}
 
-	public void setIdKelas(String idKelas){
-		this.idKelas = idKelas;
+	public void setSumatifAkhir(String sumatifAkhir){
+		this.sumatifAkhir = sumatifAkhir;
 	}
 
-	public String getIdKelas(){
-		return idKelas;
+	public String getSumatifAkhir(){
+		return sumatifAkhir;
 	}
 
-	public void setSeniMusik(String seniMusik){
-		this.seniMusik = seniMusik;
+	public void setTahunAjaran(String tahunAjaran){
+		this.tahunAjaran = tahunAjaran;
 	}
 
-	public String getSeniMusik(){
-		return seniMusik;
+	public String getTahunAjaran(){
+		return tahunAjaran;
 	}
 
-	public void setSeniTeater(String seniTeater){
-		this.seniTeater = seniTeater;
+	public void setNilaiRapor(String nilaiRapor){
+		this.nilaiRapor = nilaiRapor;
 	}
 
-	public String getSeniTeater(){
-		return seniTeater;
+	public String getNilaiRapor(){
+		return nilaiRapor;
 	}
 }

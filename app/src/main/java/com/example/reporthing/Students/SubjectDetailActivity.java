@@ -21,5 +21,17 @@ public class SubjectDetailActivity extends AppCompatActivity {
         String semesterName = getIntent().getStringExtra("semesters");
         TextView semester = findViewById(R.id.semester_name);
         semester.setText("Semester "+semesterName);
+
+        String nilaiSumatif = getIntent().getStringExtra("sumatif");
+        TextView sumatif = findViewById(R.id.nilai_sumatif);
+        sumatif.setText(nilaiSumatif);
+
+        String nilaiSumatifAkhir = getIntent().getStringExtra("sumatifAkhir");
+        TextView sumatifAkhir = findViewById(R.id.nilai_sumatif_akhir);
+        sumatifAkhir.setText(nilaiSumatifAkhir);
+
+        String nilaiRapor = getIntent().getStringExtra("nilaiRapor");
+        TextView rapor = findViewById(R.id.nilai_rapor);
+        rapor.setText(nilaiRapor);
     }
 }

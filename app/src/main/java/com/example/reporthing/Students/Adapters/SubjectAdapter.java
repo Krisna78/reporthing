@@ -36,17 +36,21 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.holder> 
 
     @Override
     public void onBindViewHolder(@NonNull holder holder, @SuppressLint("RecyclerView") int position) {
-        /*holder.nameSubject.setText(arrayList.get(position).getNamaMapel());
-        holder.valueSubject.setText(arrayList.get(position).getNilaiRapor());
+        holder.nameSubject.setText(arrayList.get(position).getNamaMapel());
+        holder.valueSubject.setText("Nilai Rapor : "+arrayList.get(position).getNilaiRapor());
         holder.subjectDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, SubjectDetailActivity.class);
+                intent.putExtra("nins",arrayList.get(position).getNisn());
                 intent.putExtra("subjectName",arrayList.get(position).getNamaMapel());
                 intent.putExtra("semesters",arrayList.get(position).getSemester());
+                intent.putExtra("sumatif",arrayList.get(position).getSumatif());
+                intent.putExtra("nilaiRapor",arrayList.get(position).getNilaiRapor());
+                intent.putExtra("sumatifAkhir",arrayList.get(position).getSumatifAkhir());
                 context.startActivity(intent);
             }
-        });*/
+        });
     }
 
     @Override
