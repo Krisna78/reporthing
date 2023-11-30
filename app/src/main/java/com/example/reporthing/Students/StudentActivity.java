@@ -4,9 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -25,18 +29,19 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.reporthing.Auth.AuthActivity;
 import com.example.reporthing.DB_url;
 import com.example.reporthing.R;
 import com.example.reporthing.Students.Adapters.SemesterAdapter;
-import com.example.reporthing.Students.Models.ProfileResponse;
-import com.example.reporthing.Students.Models.SemesterData;
-import com.example.reporthing.Students.Models.SemesterResponse;
+import com.example.reporthing.Students.Fragments.JadwalFragment;
+import com.example.reporthing.Students.Fragments.SubjectsFragment;
+import com.example.reporthing.Students.Models.Profiles.ProfileResponse;
+import com.example.reporthing.Students.Models.Semesters.SemesterData;
 import com.example.reporthing.databinding.ActivityStudentBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -45,8 +50,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class StudentActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences;
@@ -54,11 +57,15 @@ public class StudentActivity extends AppCompatActivity {
     Gson gson = new Gson();
     RecyclerView recyclerView;
     ActivityStudentBinding binding;
+    BottomNavigationView bottomNavigationView;
+    SubjectsFragment subjectsFragment = new SubjectsFragment();
+    JadwalFragment jadwalFragment = new JadwalFragment();
     SemesterAdapter adapter;
     LinearLayoutManager linearLayoutManager;
     ArrayList<SemesterData> dataSemester;
-
     SemesterData semesterModel;
+
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,11 +78,19 @@ public class StudentActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerSemester);
 
         Button out = findViewById(R.id.out);
+        replaceFragment(new SubjectsFragment());
 
+        binding.bottomNav.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.home) {
+                replaceFragment(new SubjectsFragment());
+            } else if (id == R.id.jadwal) {
+                replaceFragment(new JadwalFragment());
+            }
+            return true;
+        });
         SharedPreferences sp = getSharedPreferences("isLogin",Context.MODE_PRIVATE);
-        dataSemester = new ArrayList<>();
         showProfile(sp.getString("id",null));
-        getdata(sp.getString("nisn",null));
 
         out.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +115,12 @@ public class StudentActivity extends AppCompatActivity {
                 dialog.show();
             }
         });
+    }
+    private void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frame_layout,fragment);
+        fragmentTransaction.commit();
     }
 
     @Override
@@ -159,14 +180,14 @@ public class StudentActivity extends AppCompatActivity {
                         semesterModel = new SemesterData();
                         JSONObject data = jsonArray.getJSONObject(i);
                         semesterModel.setNisn(data.getString("nisn"));
-                        semesterModel.setSemesterKe(data.getString("semester_ke"));
-                        semesterModel.setThnAjaran(data.getString("thn_ajaran"));
+                        semesterModel.setSemester(data.getString("semester"));
+                        semesterModel.setTahunAjaran(data.getString("tahun_ajaran"));
                         dataSemester.add(semesterModel);
                     }
                     linearLayoutManager = new LinearLayoutManager(StudentActivity.this,LinearLayoutManager.VERTICAL,false);
                     recyclerView.setLayoutManager(linearLayoutManager);
 
-                    adapter = new SemesterAdapter(StudentActivity.this,dataSemester);
+                    adapter = new SemesterAdapter(StudentActivity.this, dataSemester);
                     recyclerView.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
                 } catch (JSONException e) {

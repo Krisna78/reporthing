@@ -5,53 +5,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white_grey"
     tools:context=".Students.StudentActivity">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:background="@color/colorMediumDark"
+        android:layout_height="208dp"
+        android:background="@drawable/bg_sky"
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="10dp">
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/logobrand"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/logobrand" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Reporthing"
                 android:layout_marginLeft="5dp"
-                android:textColor="@color/white"
-                android:textStyle="bold"
                 android:gravity="center_vertical"
+                android:text="Reporthing"
                 android:textAlignment="gravity"
-                android:textSize="18dp"/>
-
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
             <Button
                 android:id="@+id/out"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="90dp"
                 android:drawableLeft="@drawable/baseline_logout_24"
                 android:drawableTint="@color/white"
                 android:text="Keluar"
-                android:layout_marginLeft="90dp"
                 android:textColor="@color/white"
                 android:textSize="16dp" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="90dp"
                 android:layout_marginHorizontal="25dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:background="@color/white"
                 android:padding="10dp"
                 app:cardCornerRadius="20dp">
@@ -59,47 +60,79 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="80dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/logo2"
+                        android:layout_gravity="center_vertical"
                         android:layout_margin="10dp"
-                        android:layout_gravity="center_vertical"/>
+                        android:src="@drawable/logo2" />
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:orientation="vertical">
+
                         <TextView
                             android:id="@+id/studentName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nama : Yohanes Krina Desantho"/>
+                            android:text="Nama : Yohanes Krina Desantho" />
+
                         <TextView
                             android:id="@+id/studentClass"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Kelas : 4A"/>
+                            android:text="Kelas : 4A" />
+
                         <TextView
                             android:id="@+id/studentNISN"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="NISN : 3471503626"/>
+                            android:text="NISN : 3471503626" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
     </LinearLayout>
 
-    <ScrollView
+    <FrameLayout
+        android:id="@+id/frame_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerSemester"
+        android:layout_height="300dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"></FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNav"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/card_list_semester"
-            android:padding="15dp">
-        </androidx.recyclerview.widget.RecyclerView>
-    </ScrollView>
+            android:layout_height="wrap_content"
+            android:background="@color/white_grey"
+            app:menu="@menu/bottom_nav_view"/>
+    </LinearLayout>
 </LinearLayout>
+
+    <!--<Button
+            android:id="@+id/checkjadwal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90dp"
+            android:drawableLeft="@drawable/baseline_logout_24"
+            android:drawableTint="@color/white"
+            android:text="Jadwal"
+            android:textColor="@color/white"
+            android:textSize="16dp" />-->
+    <!--<ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerSemester"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/card_list_semester"
+                android:padding="15dp">
+            </androidx.recyclerview.widget.RecyclerView>
+        </ScrollView>-->

@@ -1,5 +1,6 @@
 package com.example.reporthing.Students.Adapters;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -12,7 +13,9 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.reporthing.R;
-import com.example.reporthing.Students.Models.SemesterData;
+import com.example.reporthing.Students.Models.Semesters.SemesterData;
+import com.example.reporthing.Students.StudentActivity;
+import com.example.reporthing.Students.SubjectsActivity;
 
 import java.util.ArrayList;
 
@@ -23,6 +26,7 @@ public class SemesterAdapter extends RecyclerView.Adapter<SemesterAdapter.holder
         this.context = context;
         this.arrayList = arrayList;
     }
+
     @NonNull
     @Override
     public SemesterAdapter.holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -32,18 +36,20 @@ public class SemesterAdapter extends RecyclerView.Adapter<SemesterAdapter.holder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SemesterAdapter.holder holder, int position) {
-        holder.semesterName.setText("Semester "+arrayList.get(position).getSemesterKe());
-        holder.thnAjaran.setText("Tahun Ajaran "+ arrayList.get(position).getThnAjaran());
+    public void onBindViewHolder(@NonNull SemesterAdapter.holder holder, @SuppressLint("RecyclerView") int position) {
+        holder.semesterName.setText("Semester "+arrayList.get(position).getSemester());
+        holder.thnAjaran.setText("Tahun Ajaran "+ arrayList.get(position).getTahunAjaran());
 
-        /*holder.cardView.setOnClickListener(new View.OnClickListener() {
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,);
+                Intent intent = new Intent(context, SubjectsActivity.class);
                 intent.putExtra("nisn",arrayList.get(position).getNisn());
+                intent.putExtra("semester",arrayList.get(position).getSemester());
+                intent.putExtra("thn_ajaran",arrayList.get(position).getTahunAjaran());
                 context.startActivity(intent);
             }
-        });*/
+        });
     }
 
     @Override

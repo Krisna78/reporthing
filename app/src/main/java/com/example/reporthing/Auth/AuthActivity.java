@@ -1,10 +1,8 @@
 package com.example.reporthing.Auth;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,7 +10,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Toast;
-import android.window.OnBackInvokedCallback;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -21,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.reporthing.Auth.ForgotPass.ForgotPassActivity;
 import com.example.reporthing.Auth.models.UserResponse;
 import com.example.reporthing.DB_url;
 import com.example.reporthing.Students.StudentActivity;
@@ -66,9 +64,11 @@ public class AuthActivity extends AppCompatActivity {
                             if (authResponse.getCode() == 200) {
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 Toast.makeText(AuthActivity.this, "Selamat Datang, " + authResponse.getUserList().get(0).getUsername(), Toast.LENGTH_SHORT).show();
-                                editor.putString("id",authResponse.getUserList().get(0).getIdUserSiswa());
+                                editor.putString("id",authResponse.getUserList().get(0).getNisn());
                                 editor.putString("nisn",authResponse.getUserList().get(0).getNisn());
                                 editor.putString("username",userName);
+                                editor.putString("kelas",authResponse.getUserList().get(0).getNamaKelas());
+                                Toast.makeText(AuthActivity.this, authResponse.getUserList().get(0).getNamaKelas(), Toast.LENGTH_SHORT).show();
                                 editor.putString("password",password);
                                 editor.putBoolean("isLogin",true);
                                 editor.apply();
@@ -102,17 +102,17 @@ public class AuthActivity extends AppCompatActivity {
                 }
             }
         });
-        binding.signup.setOnClickListener(new View.OnClickListener() {
+        /*binding.signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AuthActivity.this,SignUpActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
         binding.forgotPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AuthActivity.this,ForgotPassActivity.class);
+                Intent intent = new Intent(AuthActivity.this, ForgotPassActivity.class);
                 startActivity(intent);
             }
         });

@@ -14,24 +14,12 @@ public class UserResponse {
 	@SerializedName("status")
 	private String status;
 
-	public void setCode(int code){
-		this.code = code;
-	}
-
 	public int getCode(){
 		return code;
 	}
 
-	public void setUserList(List<UserData> userList){
-		this.userList = userList;
-	}
-
 	public List<UserData> getUserList(){
 		return userList;
-	}
-
-	public void setStatus(String status){
-		this.status = status;
 	}
 
 	public String getStatus(){

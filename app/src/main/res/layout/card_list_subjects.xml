@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <androidx.cardview.widget.CardView
+        android:id="@+id/subjct_list_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -17,20 +18,20 @@
             android:padding="15dp">
 
             <LinearLayout
-                android:layout_width="325dp"
+                android:layout_width="305dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/idSemester"
+                    android:id="@+id/id_semester"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bahasa Indonesia"
                     android:textSize="18dp" />
 
                 <TextView
-                    android:id="@+id/updateSemester"
+                    android:id="@+id/value_subject"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="90.00"
@@ -42,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="right"
-                android:src="@drawable/round_arrow_forward_ios_24"/>
+                android:src="@drawable/ic_next"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.cardview.widget.CardView>

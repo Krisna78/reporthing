@@ -1,15 +1,15 @@
-package com.example.reporthing.Students.Models;
+package com.example.reporthing.Students.Models.Subjects;
 
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class SemesterResponse {
+public class SubjectResponse {
 
 	@SerializedName("code")
 	private int code;
 
-	@SerializedName("user_profile")
-	private List<SemesterData> userProfile;
+	@SerializedName("subjects")
+	private List<SubjectsData> subjects;
 
 	@SerializedName("status")
 	private String status;
@@ -22,12 +22,12 @@ public class SemesterResponse {
 		return code;
 	}
 
-	public void setUserProfile(List<SemesterData> userProfile){
-		this.userProfile = userProfile;
+	public void setSubjects(List<SubjectsData> subjects){
+		this.subjects = subjects;
 	}
 
-	public List<SemesterData> getUserProfile(){
-		return userProfile;
+	public List<SubjectsData> getSubjects(){
+		return subjects;
 	}
 
 	public void setStatus(String status){

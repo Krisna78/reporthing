@@ -1,15 +1,15 @@
-package com.example.reporthing.Students.Models;
+package com.example.reporthing.Auth.models.VerifyPass;
 
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class ProfileResponse {
+public class VerifyResponse {
 
 	@SerializedName("code")
 	private int code;
 
 	@SerializedName("user_profile")
-	private List<ProfileData> userProfile;
+	private List<VerifyData> userProfile;
 
 	@SerializedName("status")
 	private String status;
@@ -22,11 +22,11 @@ public class ProfileResponse {
 		return code;
 	}
 
-	public void setUserProfile(List<ProfileData> userProfile){
+	public void setUserProfile(List<VerifyData> userProfile){
 		this.userProfile = userProfile;
 	}
 
-	public List<ProfileData> getUserProfile(){
+	public List<VerifyData> getUserProfile(){
 		return userProfile;
 	}
 

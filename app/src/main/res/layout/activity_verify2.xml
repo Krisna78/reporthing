@@ -25,34 +25,21 @@
                 android:id="@+id/show"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lupa Password"
+                android:text="Verifikasi OTP"
                 android:textAlignment="center"
                 android:textSize="26dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
             <EditText
-                android:id="@+id/email_field"
+                android:id="@+id/otp_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email"
+                android:hint="Kode OTP"
                 android:background="@drawable/custom_stroke"
                 android:padding="10dp"
-                android:drawableLeft="@drawable/baseline_person_24"
                 android:drawableTint="@color/colorMedium"
                 android:drawablePadding="16dp"
                 android:layout_marginTop="35dp"
-                android:textSize="18dp"/>
-            <EditText
-                android:id="@+id/nisn_field"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="NISN"
-                android:background="@drawable/custom_stroke"
-                android:padding="10dp"
-                android:drawableLeft="@drawable/baseline_person_24"
-                android:drawableTint="@color/colorMedium"
-                android:drawablePadding="16dp"
-                android:layout_marginTop="15dp"
                 android:textSize="18dp"/>
             <Button
                 android:id="@+id/btn_send"
@@ -60,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:padding="15dp"
-                android:text="Kirim Kode"
+                android:text="Verifikasi"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 android:textStyle="bold"/>

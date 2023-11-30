@@ -25,35 +25,29 @@
                 android:id="@+id/show"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lupa Password"
+                android:text="Ganti Password"
                 android:textAlignment="center"
                 android:textSize="26dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
-            <EditText
-                android:id="@+id/email_field"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:background="@drawable/custom_stroke"
-                android:padding="10dp"
-                android:drawableLeft="@drawable/baseline_person_24"
-                android:drawableTint="@color/colorMedium"
-                android:drawablePadding="16dp"
-                android:layout_marginTop="35dp"
-                android:textSize="18dp"/>
-            <EditText
-                android:id="@+id/nisn_field"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="NISN"
-                android:background="@drawable/custom_stroke"
-                android:padding="10dp"
-                android:drawableLeft="@drawable/baseline_person_24"
-                android:drawableTint="@color/colorMedium"
-                android:drawablePadding="16dp"
-                android:layout_marginTop="15dp"
-                android:textSize="18dp"/>
+                android:layout_height="52dp"
+                android:layout_marginTop="20dp"
+                app:startIconDrawable="@drawable/baseline_lock_24"
+                app:startIconTint="@color/colorMedium"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/colorMedium"
+                app:hintEnabled="false">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/password_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_stroke"
+                    android:textSize="18dp"
+                    android:hint="Password"
+                    android:inputType="textPassword"/>
+            </com.google.android.material.textfield.TextInputLayout>
             <Button
                 android:id="@+id/btn_send"
                 android:layout_width="match_parent"

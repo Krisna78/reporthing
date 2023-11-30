@@ -33,69 +33,26 @@
             <LinearLayout
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp">
                 <TextView
-                    android:id="@+id/idSemester"
+                    android:id="@+id/jadwalDetailHari"
                     android:layout_width="224dp"
                     android:layout_height="17dp"
                     android:layout_marginBottom="3dp"
                     android:layout_marginStart="5dp"
-                    android:text="Semester Ganjil"
+                    android:text="Bahasa Indonesia"
                     android:textSize="16dp"
                     android:textStyle="bold"/>
                 <TextView
-                    android:id="@+id/thn_ajaran"
+                    android:id="@+id/jamPelajaran"
                     android:layout_width="205dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:text="Dibagikan pada"
+                    android:text="07.00 - 09.00"
                     android:textColor="@color/grey"
                     android:textSize="13dp"/>
             </LinearLayout>
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_next"
-                android:layout_gravity="center"
-                android:layout_marginStart="50dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-    <!--<androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:cardElevation="5dp"
-        app:cardCornerRadius="17dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp">
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/logo2"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="5dp">
-                <TextView
-                    android:id="@+id/thn_ajaran"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:text="Semester 1"
-                    android:textStyle="bold"/>
-                <TextView
-                    android:id="@+id/idSemester"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:text="Di bagikan pada Desember 2021"/>
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>-->
 </androidx.cardview.widget.CardView>
