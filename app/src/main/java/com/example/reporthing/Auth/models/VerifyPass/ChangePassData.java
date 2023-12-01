@@ -2,13 +2,10 @@ package com.example.reporthing.Auth.models.VerifyPass;
 
 import com.google.gson.annotations.SerializedName;
 
-public class VerifyData {
+public class ChangePassData {
 
 	@SerializedName("nisn")
 	private String nisn;
-
-	@SerializedName("otp")
-	private String otp;
 
 	public void setNisn(String nisn){
 		this.nisn = nisn;
@@ -16,13 +13,5 @@ public class VerifyData {
 
 	public String getNisn(){
 		return nisn;
-	}
-
-	public void setOtp(String otp){
-		this.otp = otp;
-	}
-
-	public String getOtp(){
-		return otp;
 	}
 }

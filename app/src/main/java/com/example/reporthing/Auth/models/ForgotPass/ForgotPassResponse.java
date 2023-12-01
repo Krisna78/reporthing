@@ -3,14 +3,16 @@ package com.example.reporthing.Auth.models.ForgotPass;
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class ForgotResponse {
+public class ForgotPassResponse {
 
 	@SerializedName("code")
 	private int code;
+
+	@SerializedName("forgot_pass")
+	private List<ForgotPassData> forgotPass;
+
 	@SerializedName("status")
 	private String status;
-	@SerializedName("user_profile")
-	private List<ForgotData> userProfile;
 
 	public void setCode(int code){
 		this.code = code;
@@ -20,12 +22,12 @@ public class ForgotResponse {
 		return code;
 	}
 
-	public void setUserProfile(List<ForgotData> userProfile){
-		this.userProfile = userProfile;
+	public void setForgotPass(List<ForgotPassData> forgotPass){
+		this.forgotPass = forgotPass;
 	}
 
-	public List<ForgotData> getUserProfile(){
-		return userProfile;
+	public List<ForgotPassData> getForgotPass(){
+		return forgotPass;
 	}
 
 	public void setStatus(String status){

@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     android:background="@drawable/layoutlogin"
-    tools:context=".Auth.ForgotPass.ForgotPassActivity">
+    tools:context=".Auth.AuthActivity">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
-        android:layout_gravity="center"
         app:cardCornerRadius="20dp"
         android:background="@color/colorLight"
         app:cardElevation="20dp">
@@ -22,12 +23,11 @@
             android:orientation="vertical"
             android:padding="24dp">
             <TextView
-                android:id="@+id/show"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ganti Password"
+                android:text="Ubah Password"
                 android:textAlignment="center"
-                android:textSize="26dp"
+                android:textSize="28dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
             <com.google.android.material.textfield.TextInputLayout
@@ -49,12 +49,12 @@
                     android:inputType="textPassword"/>
             </com.google.android.material.textfield.TextInputLayout>
             <Button
-                android:id="@+id/btn_send"
+                android:id="@+id/btn_verify_pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:padding="15dp"
-                android:text="Kirim Kode"
+                android:layout_marginTop="20dp"
+                android:padding="13dp"
+                android:text="Masuk"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 android:textStyle="bold"/>

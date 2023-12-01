@@ -15,6 +15,12 @@
         android:theme="@style/Theme.Reporthing"
         tools:targetApi="31">
         <activity
+            android:name=".Auth.ForgotPass.ChangePassActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Auth.ForgotPass.ForgotPassActivity"
+            android:exported="false" />
+        <activity
             android:name=".Students.JadwalDetailsActivity"
             android:exported="false" />
         <activity
@@ -34,9 +40,6 @@
             android:exported="false" />
         <activity
             android:name=".Students.SubjectsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Auth.ForgotPass.ForgotPassActivity"
             android:exported="false" />
         <activity
             android:name=".Teachers.TeacherActivity"

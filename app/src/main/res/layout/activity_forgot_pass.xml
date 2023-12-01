@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     android:background="@drawable/layoutlogin"
-    tools:context=".Auth.ForgotPass.ForgotPassActivity">
+    tools:context=".Auth.AuthActivity">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
-        android:layout_gravity="center"
         app:cardCornerRadius="20dp"
         android:background="@color/colorLight"
         app:cardElevation="20dp">
@@ -22,26 +23,13 @@
             android:orientation="vertical"
             android:padding="24dp">
             <TextView
-                android:id="@+id/show"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Lupa Password"
                 android:textAlignment="center"
-                android:textSize="26dp"
+                android:textSize="28dp"
                 android:textColor="@color/black"
                 android:textStyle="bold"/>
-            <EditText
-                android:id="@+id/email_field"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Email"
-                android:background="@drawable/custom_stroke"
-                android:padding="10dp"
-                android:drawableLeft="@drawable/baseline_person_24"
-                android:drawableTint="@color/colorMedium"
-                android:drawablePadding="16dp"
-                android:layout_marginTop="35dp"
-                android:textSize="18dp"/>
             <EditText
                 android:id="@+id/nisn_field"
                 android:layout_width="match_parent"
@@ -52,15 +40,15 @@
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:drawableTint="@color/colorMedium"
                 android:drawablePadding="16dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="35dp"
                 android:textSize="18dp"/>
             <Button
-                android:id="@+id/btn_send"
+                android:id="@+id/btn_check"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
                 android:padding="15dp"
-                android:text="Kirim Kode"
+                android:text="Verifikasi"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 android:textStyle="bold"/>

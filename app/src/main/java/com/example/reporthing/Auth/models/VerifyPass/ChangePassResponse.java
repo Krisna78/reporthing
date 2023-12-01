@@ -3,13 +3,13 @@ package com.example.reporthing.Auth.models.VerifyPass;
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class VerifyResponse {
+public class ChangePassResponse {
 
 	@SerializedName("code")
 	private int code;
 
-	@SerializedName("user_profile")
-	private List<VerifyData> userProfile;
+	@SerializedName("forgot_pass")
+	private List<ChangePassData> forgotPass;
 
 	@SerializedName("status")
 	private String status;
@@ -22,12 +22,12 @@ public class VerifyResponse {
 		return code;
 	}
 
-	public void setUserProfile(List<VerifyData> userProfile){
-		this.userProfile = userProfile;
+	public void setForgotPass(List<ChangePassData> forgotPass){
+		this.forgotPass = forgotPass;
 	}
 
-	public List<VerifyData> getUserProfile(){
-		return userProfile;
+	public List<ChangePassData> getForgotPass(){
+		return forgotPass;
 	}
 
 	public void setStatus(String status){
