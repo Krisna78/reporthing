@@ -53,8 +53,7 @@ public class AuthActivity extends AppCompatActivity {
                 userName = binding.usernameField.getText().toString();
                 password = binding.passwordField.getText().toString();
                 if (userName.isEmpty() || password.isEmpty()){
-                    Toast.makeText(AuthActivity.this, userName, Toast.LENGTH_SHORT).show();
-                    //Toast.makeText(AuthActivity.this, "Masukkan Username dan Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AuthActivity.this, "Masukkan Username dan Password", Toast.LENGTH_SHORT).show();
                 } else if (!(userName.isEmpty() || password.isEmpty()) ){
                     Gson gson = new Gson();
                     StringRequest request = new StringRequest(Request.Method.GET, DB_url.urlAuth + "?username=" + userName + "&password=" + password, new Response.Listener<String>() {

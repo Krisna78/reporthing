@@ -50,6 +50,7 @@ public class ChangePassActivity extends AppCompatActivity {
         });
     }
     private void changePass(String nisn,String pass) {
+        Toast.makeText(this, nisn+"     "+pass, Toast.LENGTH_SHORT).show();
         StringRequest request = new StringRequest(Request.Method.GET, DB_url.urlForgotPass + "?id=" + nisn +"&password="+pass, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

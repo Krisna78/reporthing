@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="@drawable/layoutlogin"
+    android:background="@drawable/bg_auth"
     tools:context=".Auth.AuthActivity">
     <ImageView
         android:layout_width="114dp"
@@ -14,13 +14,14 @@
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
         android:layout_marginEnd="20dp"
-        android:src="@drawable/logo2"/>
+        android:src="@drawable/logo_putih"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Reporthing"
+        android:text="Selamat Datang"
         android:textSize="32dp"
         android:textStyle="bold"
+        android:layout_marginBottom="20dp"
         android:textColor="@color/black"
         android:textAlignment="center"/>
 

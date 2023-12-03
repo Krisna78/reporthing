@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/cardSemester"
     android:gravity="center_horizontal"
-    android:background="@color/white_grey"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <androidx.cardview.widget.CardView
@@ -18,7 +18,7 @@
         app:cardUseCompatPadding="true">
         <LinearLayout
             android:layout_width="368dp"
-            android:layout_height="53dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="8dp"
             android:layout_gravity="center_horizontal"
@@ -38,7 +38,7 @@
                 <TextView
                     android:id="@+id/idSemester"
                     android:layout_width="224dp"
-                    android:layout_height="17dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginBottom="3dp"
                     android:layout_marginStart="5dp"
                     android:text="Semester Ganjil"

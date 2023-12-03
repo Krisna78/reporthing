@@ -80,6 +80,10 @@ public class StudentActivity extends AppCompatActivity {
         Button out = findViewById(R.id.out);
         replaceFragment(new SubjectsFragment());
 
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame_layout, new SubjectsFragment())
+                .commit();
+
         binding.bottomNav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.home) {
@@ -146,9 +150,9 @@ public class StudentActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 ProfileResponse profileResponse = gson.fromJson(response.toString(),ProfileResponse.class);
-                name.setText("Nama: " + profileResponse.getUserProfile().get(0).getNamaSiswa());
-                kelas.setText("Kelas: "+ profileResponse.getUserProfile().get(0).getNamaKelas());
-                nisn.setText("NISN: "+ profileResponse.getUserProfile().get(0).getNisn());
+                name.setText(profileResponse.getUserProfile().get(0).getNamaSiswa());
+                kelas.setText(profileResponse.getUserProfile().get(0).getNamaKelas());
+                nisn.setText(profileResponse.getUserProfile().get(0).getNisn());
             }
         }, new Response.ErrorListener() {
             @Override
